@@ -1,0 +1,92 @@
+.gallery_container{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    scrollbar-width: none;
+
+    .main_images{
+        margin: auto;
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        box-sizing: border-box;
+        column-count: 3;
+        column-gap: 20px;
+        .images{
+            position: relative;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            break-inside: avoid-column; 
+            height: 300px;
+            margin-bottom: 10px;
+            .image{
+                box-sizing: border-box;
+                height: 100%;
+                width: 100%;
+                position: relative;
+                transition: all 150ms ease;
+                cursor: pointer;
+                // margin-bottom: 12px;
+                padding: 10px;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+
+                &:hover{
+                    .hover-content {
+                        display: flex;
+                      }
+                    filter: opacity(.8);
+                }
+        
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .hover-content {
+                    box-sizing: border-box;
+                    display: inline-flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: none; 
+                    // background-color: rgba(0, 0, 0, 0.8); 
+                    color: white; 
+                    font-weight: bold;
+                    padding: 10px;
+                
+                    .details{
+                        display: inline-flex;
+                        flex-direction: row;
+                        width: 50%;
+                        justify-content: center;
+                
+                        img{
+                            width: 25px;
+                            margin-right: 10px;
+                        }
+                    }
+                
+                  }
+            }
+        }
+    }
+    
+}
+
+.gallery_container::-webkit-scrollbar {
+    display: none;
+  }
+
+  

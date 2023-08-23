@@ -1,0 +1,38 @@
+<ng-template *ngIf="data.contacts; else video">
+  <div class="card">
+      <div class="card-content">
+          <h3>Instagram</h3>
+          <a [href]="data.contacts.url" target="_blank">{{data.contacts.url}} IG</a>
+      </div>
+  </div>
+  <div *ngFor="let contact of data.contacts.contacts.reverse()" class="card">
+      <div class="card-content">
+        <h3>{{ contact.type }}</h3>
+        <div class="link-container" *ngIf="contact.type==='youtube'; else email">
+          <a [href]="contact.formatted_value" target="_blank">enter {{data.contacts.fullname}} channel</a>
+        </div>
+        <ng-template #email>
+          <div class="email-container">
+              {{contact.formatted_value}}
+          </div>
+        </ng-template>
+        <div>
+          
+        </div>
+      </div>
+  </div>
+</ng-template>
+<div *ngIf="!data.contacts && !data.video">
+  no contacts
+</div>
+<!-- [src]="igService.videoUrl" -->
+<ng-template #video>
+  <iframe
+    class="dialog-video"
+    [src]="videoUrl"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+</ng-template>
+
+  

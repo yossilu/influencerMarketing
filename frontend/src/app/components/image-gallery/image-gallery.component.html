@@ -1,0 +1,23 @@
+<div class="gallery_container">
+    <div class="main_images">
+        <div class="images" *ngFor="let item of igService.currentUser.posts; trackBy: trackByFunction">
+            <div class="image">
+                <img loading="lazy" *ngIf="item.display_url; else loading" alt="ig_image" [src]="item.display_url"/>
+                <ng-template #loading>
+                    Loading Image.....
+                </ng-template>
+                <div class="hover-content" (click)="imageClick($event, item)">
+                    <div class="likes details">
+                        <img class="hovered_image_logo" alt="ig_likes" src="../../assets/ig_heart.png"/>
+                        {{item.like_count | decimalFormat}}
+                    </div>
+                    <div class="comments details">
+                        <img class="hovered_image_logo" alt="ig_comment" src="../../assets/ig_comment.png"/>
+                        {{item.comment_count | decimalFormat}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

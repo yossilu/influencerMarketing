@@ -1,0 +1,40 @@
+<div class="profile_header_container" *ngIf="igService.currentUser.user">
+    <div class="profile_image">
+        <img alt="profile_img" [src]="igService.currentUser.user.picture"/>
+    </div>
+    <div class="profile_data">
+        <div class="profile_name">
+            <h1>
+                {{igService.currentUser.user.username}}
+            </h1>
+            <img class="is_verified" *ngIf="igService.currentUser.user.is_verified" alt="isVerified" src="../../assets/isVerified.png"/>
+        </div>
+        <div class="profile_ig_data">
+            <div class="posts">
+                <div class="number_bold">
+                    {{igService.currentUser.posts.length}}
+                </div>
+                 posts 
+            </div>
+            <br>
+            <div class="followers">
+                <div class="number_bold">
+                    {{igService.currentUser.user.followers | decimalFormat }}
+                </div>
+                followers
+            </div>
+        </div>
+        <div class="profile_link">
+            <div class="fullname">
+                <h4>
+                    {{igService.currentUser.user.fullname}}
+                </h4>
+            </div>
+        </div>
+    </div>
+    <button class="contacts_button" mat-button color="primary" (click)="openContactModal()">contacts</button>
+</div>
+
+<div *ngIf="!igService.currentUser.user">
+    No Data
+</div>
